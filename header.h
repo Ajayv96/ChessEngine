@@ -6,6 +6,7 @@ typedef unsigned long long UL;
 #define NAME "Vice 1.0"
 #define BRD_SQ_NUM 120
 
+//enum for each piece
 enum {EMPTY,wP,wN,wB,wR,wQ,wK,bP,bN,bB,bR,bQ,bK};
 enum {FILE_A,FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G,FILE_H, FILE_NONE};
 enum {RANK_1, RANK_2, RANK_3, RANK_4, RANK_5, RANK_6, RANK_7, RANK_8, RANK_NONE};
@@ -21,5 +22,15 @@ A6 =71,B6,C6,D6,E6,F6,G6,H6,
 A7 =81,B7,C7,D7,E7,F7,G7,H7,
 A8 =91,B8,C8,D8,E8,F8,G8,H8,NO_SQ
 };
+
+typedef struct 
+{
+    int pieces[BRD_SQ_NUM];
+    UL pawns[3]; /* Each bit represents a pawn (1 - Present, 0 - Not Present)
+                  * pawns[0] - represent wp
+                  * pawns[1] - represents bp
+                  * pawns[2] - represents both
+                  */
+} S_BOARD;
 
 #endif
